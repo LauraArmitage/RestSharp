@@ -29,4 +29,4 @@ jobs:
       -
         name: Check vulnerabilities
         run: |
-          dotnet list RestSharp.sln package --vulnerable --include-transitive
+          dotnet restore RestSharp.sln && dotnet list RestSharp.sln package --vulnerable --include-transitive
