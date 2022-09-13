@@ -1,0 +1,32 @@
+name: Check Vulnerabilities
+
+on:
+  push:
+    branches:
+      - dev
+    tags:
+      - '*'
+
+permissions:
+  contents: read
+
+jobs:
+  nuget:
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -  
+        name: Setup .NET
+        uses: actions/setup-dotnet@v2
+        with:
+          dotnet-version: '6.0'
+      -
+        name: Unshallow
+        run: git fetch --prune --unshallow
+      -
+        name: Check vulnerabilities
+        run: |
+          dotnet list RestSharp.sln package --vulnerable --include-transitive
