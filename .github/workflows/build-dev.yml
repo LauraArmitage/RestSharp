@@ -1,16 +1,18 @@
 name: Build and deploy
 
-on:
-  push:
-    paths-ignore:
-      - 'docs/**'
-      - 'yarn.lock'
-      - 'package.json'
-      - '**/*.md'
-    branches:
-      - dev
-    tags:
-      - '*'
+# run manually only on fork
+on: workflow_dispatch
+# on:
+#   push:
+#     paths-ignore:
+#       - 'docs/**'
+#       - 'yarn.lock'
+#       - 'package.json'
+#       - '**/*.md'
+#     branches:
+#       - dev
+#     tags:
+#       - '*'
 
 permissions:
   contents: read
