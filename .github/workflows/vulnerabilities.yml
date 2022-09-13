@@ -24,9 +24,6 @@ jobs:
         with:
           dotnet-version: '6.0'
       -
-        name: Unshallow
-        run: git fetch --prune --unshallow
-      -
         name: Check vulnerabilities
         run: |
           dotnet restore RestSharp.sln && dotnet list RestSharp.sln package --vulnerable --include-transitive
